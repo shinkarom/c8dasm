@@ -264,59 +264,14 @@ string parse(usint param)
 	} else
 	if((param&0xF0FF)==0xF055)
 	{
-		s<<"LD I, ";
+		s<<"LD [I], ";
 		reg1(param, s);
 	} else	
 	if((param&0xF0FF)==0xF065)
 	{
 		s<<"LD ";
 		reg1(param, s);
-		s<<", I";
-	} else
-	//Super
-	//0
-	if((param&0xFFF0)==0x00C0)
-	{
-		s<<"SCD ";
-		usint nibble = (param&0x000F);
-		s<<nibble;
-	} else
-	if(param==0x00FB)
-	{
-		s<<"SCR";
-	} else		
-	if(param==0x00FC)
-	{
-		s<<"SCL";
-	} else	
-	if(param==0x00FD)
-	{
-		s<<"EXIT";
-	} else	
-	if(param==0x00FE)
-	{
-		s<<"LOW";
-	} else	
-	if(param==0x00FF)
-	{
-		s<<"HIGH";
-	} else
-	//F
-	if((param&0xF0FF)==0xF030)
-	{
-		s<<"LD HF, ";
-		reg1(param,s);
-	} else
-	if((param&0xF0FF)==0xF030)
-	{
-		s<<"LD R, ";
-		reg1(param,s);
-	} else
-	if((param&0xF0FF)==0xF030)
-	{
-		s<<"LD ";
-		reg1(param,s);
-		s<<", R";
+		s<<", [I]";
 	}
 	return s.str();
 }
