@@ -52,12 +52,6 @@ string parse(usint param)
 		s<<"JP ";
 		three_bytes(param&0x0FFF,s);
 	} else
-	//0
-	if((param&0xF000)==0x0000)
-	{
-		s<<"SYS ";
-		three_bytes(param&0x0FFF,s);
-	} else
 	//CLS
 	if(param==0x00E0)
 	{
@@ -68,6 +62,12 @@ string parse(usint param)
 	{
 		s<<"RET";
 	} else
+	//0
+	if((param&0xF000)==0x0000)
+	{
+		s<<"SYS ";
+		three_bytes(param&0x0FFF,s);
+	} else		
 	//2
 	if((param&0xF000)==0x2000)
 	{
