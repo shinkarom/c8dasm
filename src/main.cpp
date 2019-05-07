@@ -61,12 +61,6 @@ string parse(usint param)
 	if(param==0x00EE)
 	{
 		s<<"RET";
-	} else
-	//0
-	if((param&0xF000)==0x0000)
-	{
-		s<<"SYS ";
-		three_bytes(param&0x0FFF,s);
 	} else		
 	//2
 	if((param&0xF000)==0x2000)
