@@ -171,7 +171,7 @@ string parse(usint param)
 	//9
 	if((param&0xF00F)==0x9000)
 	{
-		s<<"SN ";
+		s<<"SNE ";
 		reg1(param,s);
 		s<<", ";
 		reg2(param,s);	
